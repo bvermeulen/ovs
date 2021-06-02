@@ -12,12 +12,10 @@
     {% endfor %}
   {% endif %}
 
-  <h2>Available Candidates of {{ obj.title }}</h2>
+  <h2>Available Candidates of {{ position.title }}</h2>
   <form action="" method="POST">
     {% csrf_token %}
-    {% for c in obj.candidate_set.all %}
-      <!-- <input type="radio" name="{{ c.position}}" value="{{c.id}}" required> <strong>{{c.name}} <a href="{% url 'detail' c.id %}">Detail</a></strong>
-     <br> -->
+    {% for c in position.candidate_set.all %}
      <div class="custom-control custom-radio">
       <input type="radio" id="id_{{c.id}}" name="{{ c.position}}" value="{{c.id}}" class="custom-control-input" required>
       <label class="custom-control-label" for="id_{{c.id}}">{{c.name}} <a href="{% url 'detail' c.id %}">Detail</a></label>

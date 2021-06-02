@@ -13,11 +13,11 @@
       </tr>
     </thead>
     <tbody>
-      {% for i in obj %}
+      {% for c in candidates %}
         <tr>
-          <td>{{ i.name }}</td>
-          <td>{{ i.position }}</td>
-          <td>{{ i.total_vote }}</td>
+          <td>{{ c.name }}</td>
+          <td>{{ c.position }}</td>
+          <td>{{ c.total_vote }}</td>
         </tr>
       {% endfor %}
     </tbody>

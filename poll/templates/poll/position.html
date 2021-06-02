@@ -3,12 +3,22 @@
 {% block title %}{% endblock %}
 
 {% block content %}
+  <h2>Hello {{ user.first_name }} {{ user.last_name }}</h2>
+  <p>you have already voted for:</p>
+  <ul>
+    {% for candidate in candidates %}
+      <li>{{ candidate.name }} - {{ candidate.position.title }}</li>
+    {% empty %}
+      <p>No candidate yet</p>
+    {% endfor %}
+  </ul>
+
   <h2>Available Position For Vote</h2>
   <ul>
-    {% for i in obj %}
-      <li><a href="{% url 'candidate' i.id %}">{{i.title}}</a></li>
+    {% for position in positions %}
+      <li><a href="{% url 'candidate' position.id %}">{{position.title}}</a></li>
     {% empty %}
-      <p>No Positions Available</p>
+      <p>Thank you {{ user.first_name }}. You have voted for all candidates</p>
     {% endfor %}
   </ul>
 {% endblock %}
